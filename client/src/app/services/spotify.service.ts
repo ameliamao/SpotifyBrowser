@@ -7,6 +7,7 @@ import { ResourceData } from '../data/resource-data';
 import { ProfileData } from '../data/profile-data';
 import { TrackFeature } from '../data/track-feature';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +35,7 @@ export class SpotifyService {
   searchFor(category:string, resource:string):Promise<ResourceData[]> {
     return this.sendRequestToExpress('/search/' + category + '/'+ encodeURIComponent(resource)).then((data) => {
       console.log(data);
+      console.log("category = "+ category);
       if (category == 'artist') {
         return data['artists']
        ['items'].map((artist) => {
