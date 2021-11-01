@@ -7,8 +7,6 @@ import { ResourceData } from '../data/resource-data';
 import { ProfileData } from '../data/profile-data';
 import { TrackFeature } from '../data/track-feature';
 
-//change random line
-
 @Injectable({
   providedIn: 'root'
 })
