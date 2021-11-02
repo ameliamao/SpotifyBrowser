@@ -24,7 +24,7 @@
 			<!--TODO: Use *ngIf to hide if hideArtist is true; link to the first artist's endpoint and display the first artist's name-->
 			<td *ngIf="hideArtist == false" ><a href = "/{{track.primaryArtist.category}}/{{track.primaryArtist.id}}">{{track.primaryArtist.name}}</a></td>
 			<!--TODO: Use *ngIf to hide if hideAlbum is true; link to the album's endpoint and display the album's name-->
-			<td *ngIf="hideAlbum == false"><a href = "/{{track.album.category}}/{{track.album.id}}"></a>{{track.album.name}}</td>
+			<td *ngIf="hideAlbum == false"><a href = "/{{track.album.category}}/{{track.album.id}}">{{track.album.name}}</a></td>
 		</tr>
 	</tbody>
 </table>

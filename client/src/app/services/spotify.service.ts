@@ -67,15 +67,15 @@ export class SpotifyService {
   }
 
   getArtist(artistId:string):Promise<ArtistData> {
-    return this.sendRequestToExpress('/artists/'+ encodeURI(artistId)).then((data) => {
-      return data;
+    return this.sendRequestToExpress('/artist/'+ encodeURI(artistId)).then((data) => {
+      return new ArtistData(data);
     });
     //TODO: use the artist endpoint to make a request to express.
     //Again, you may need to encode the artistId.
   }
 
   getRelatedArtists(artistId:string):Promise<ArtistData[]> {
-    return this.sendRequestToExpress('/artists/'+ encodeURI(artistId) + '/related-artists').then((data) => {
+    return this.sendRequestToExpress('/artist-related-artists/'+ encodeURI(artistId) ).then((data) => {
       return data['artists'].map((artist) => {
          return new ArtistData(artist);
        });   
@@ -85,7 +85,7 @@ export class SpotifyService {
 
   getTopTracksForArtist(artistId:string):Promise<TrackData[]> {
     //TODO: use the top tracks endpoint to make a request to express.
-    return this.sendRequestToExpress('/artists/'+ encodeURI(artistId) + '/top-tracks').then((data) => {
+    return this.sendRequestToExpress('/artist-top-tracks/'+ encodeURI(artistId)).then((data) => {
       return data['tracks'].map((track) => {
         return new TrackData(track);
       });   
@@ -94,7 +94,7 @@ export class SpotifyService {
 
   getAlbumsForArtist(artistId:string):Promise<AlbumData[]> {
     //TODO: use the albums for an artist endpoint to make a request to express.
-    return this.sendRequestToExpress('/artists/'+ encodeURI(artistId) +'/albums').then((data) => {
+    return this.sendRequestToExpress('/artist-albums/'+ encodeURI(artistId)).then((data) => {
       return data['items'].map((album) => {
         return new AlbumData(album);
       });   
@@ -103,15 +103,15 @@ export class SpotifyService {
 
   getAlbum(albumId:string):Promise<AlbumData> {
     //TODO: use the album endpoint to make a request to express.
-    return this.sendRequestToExpress('/albums/'+ encodeURI(albumId)).then((data) => {
-      return data;
+    return this.sendRequestToExpress('/album/'+ encodeURI(albumId)).then((data) => {
+      return new AlbumData(data);
     });
   }
 
   getTracksForAlbum(albumId:string):Promise<TrackData[]> {
     //TODO: use the tracks for album endpoint to make a request to express.
-    return this.sendRequestToExpress('/albums/'+ encodeURI(albumId) + '/tracks').then((data) => {
-      return data['tracks'].map((track) => {
+    return this.sendRequestToExpress('/album-tracks/'+ encodeURI(albumId)).then((data) => {
+      return data['items'].map((track) => {
         return new TrackData(track);
       });  
     });
@@ -119,14 +119,14 @@ export class SpotifyService {
 
   getTrack(trackId:string):Promise<TrackData> {
     //TODO: use the track endpoint to make a request to express.
-    return this.sendRequestToExpress('/tracks/'+ encodeURI(trackId)).then((data) => {
-      return data;
+    return this.sendRequestToExpress('/track/'+ encodeURI(trackId)).then((data) => {
+      return new TrackData(data);
     });
   }
 
   getAudioFeaturesForTrack(trackId:string):Promise<TrackFeature[]> {
     //TODO: use the audio features for track endpoint to make a request to express.
-    return this.sendRequestToExpress('/audio-features/' + encodeURIComponent(trackId)).then((data) => {
+    return this.sendRequestToExpress('/track-audio-features/' + encodeURIComponent(trackId)).then((data) => {
       let tf:TrackFeature[] = [];
       tf.push(new TrackFeature('danceability',data['danceability'])); 
       tf.push(new TrackFeature('energy',data['energy'])); 

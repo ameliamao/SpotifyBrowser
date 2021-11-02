@@ -32,7 +32,7 @@ export class ArtistPageComponent implements OnInit {
     }.bind(this));
 
    this.spotifyService.getRelatedArtists(this.artistId).then(function(response) {
-    this.relatedArtistts = response;
+    this.relatedArtists = response;
   }.bind(this));
 
 
