@@ -103,21 +103,39 @@ export class SpotifyService {
 
   getAlbum(albumId:string):Promise<AlbumData> {
     //TODO: use the album endpoint to make a request to express.
-    return null;
+    return this.sendRequestToExpress('/albums/'+ encodeURI(albumId)).then((data) => {
+      return data;
+    });
   }
 
   getTracksForAlbum(albumId:string):Promise<TrackData[]> {
     //TODO: use the tracks for album endpoint to make a request to express.
-    return null;
+    return this.sendRequestToExpress('/albums/'+ encodeURI(albumId) + '/tracks').then((data) => {
+      return data['tracks'].map((track) => {
+        return new TrackData(track);
+      });  
+    });
   }
 
   getTrack(trackId:string):Promise<TrackData> {
     //TODO: use the track endpoint to make a request to express.
-    return null;
+    return this.sendRequestToExpress('/tracks/'+ encodeURI(trackId)).then((data) => {
+      return data;
+    });
   }
 
   getAudioFeaturesForTrack(trackId:string):Promise<TrackFeature[]> {
     //TODO: use the audio features for track endpoint to make a request to express.
-    return null;
+    return this.sendRequestToExpress('/audio-features/' + encodeURIComponent(trackId)).then((data) => {
+      let tf:TrackFeature[] = [];
+      tf.push(new TrackFeature('danceability',data['danceability'])); 
+      tf.push(new TrackFeature('energy',data['energy'])); 
+      tf.push(new TrackFeature('speechiness',data['speechiness'])); 
+      tf.push(new TrackFeature('acousticness',data['acousticness'])); 
+      tf.push(new TrackFeature('instrumentalness',data['instrumentalness'])); 
+      tf.push(new TrackFeature('liveness',data['liveness'])); 
+      tf.push(new TrackFeature('valence',data['valence'])); 
+      return tf;
+    });
   }
 }
