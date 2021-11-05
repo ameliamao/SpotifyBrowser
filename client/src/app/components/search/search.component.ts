@@ -16,6 +16,7 @@ export class SearchComponent implements OnInit {
   searchCategory:string = 'artist';
   searchCategories:string[] = ['artist', 'album', 'track'];
   resources:ResourceData[];
+  lock: boolean = false;
 
   constructor(private spotifyService:SpotifyService) { }
 
