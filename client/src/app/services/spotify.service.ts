@@ -57,7 +57,6 @@ export class SpotifyService {
            return new AlbumData(albums);
          });     
       }
-      return null;
     });
 
     //TODO: identify the search endpoint in the express webserver (routes/index.js) and send the request to express.

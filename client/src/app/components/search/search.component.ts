@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit {
   searchCategory:string = 'artist';
   searchCategories:string[] = ['artist', 'album', 'track'];
   resources:ResourceData[];
-  lock: boolean = false;
+  buffer: TrackData[];
 
   constructor(private spotifyService:SpotifyService) { }
 
@@ -29,7 +29,19 @@ export class SearchComponent implements OnInit {
       info.then(function(response) {
         this.resources = response;
       }.bind(this));
+      var info2 = this.spotifyService.searchFor("track",this.searchString);
+      info2.then(function(response) {
+        this.buffer = response;
+      }.bind(this));
     
   }
+
+  process() {
+    console.log("change detected in track list component");
+        this.spotifyService.searchFor("track",this.searchString).then(function(response) {
+        this.resources = response;
+      });
+      return this.resources;
+    }
 
 }
