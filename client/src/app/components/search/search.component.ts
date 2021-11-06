@@ -36,12 +36,5 @@ export class SearchComponent implements OnInit {
     
   }
 
-  process() {
-    console.log("change detected in track list component");
-        this.spotifyService.searchFor("track",this.searchString).then(function(response) {
-        this.resources = response;
-      });
-      return this.resources;
-    }
 
 }
