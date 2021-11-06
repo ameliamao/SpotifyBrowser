@@ -2,13 +2,12 @@
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
-10/10
-- 1/1 Communicating with the webserver
-- 1/1 Populating information about the user
-- 3/3 Populating the search component
-- 2/2 Artist page
-- 1.5/1.5 Album page
-- 1.5/1.5 Track page
+15/15
+- 2/2 Communicating with the webserver
+- 5/5 Home Page
+- 3/3 Artist page
+- 2.5/2.5 Album page
+- 2.5/2.5 Track page
 
 
 2. How long, in hours, did it take you to complete this assignment?
