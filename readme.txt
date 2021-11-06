@@ -19,7 +19,6 @@ https://stackoverflow.com/questions/32024483/setting-member-variable-from-within
 https://developer.spotify.com/console/
 https://angular.io/api/common/NgForOf
 
-
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 I worked with Amelia Mao on this project as partners.
 
