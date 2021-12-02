@@ -1,3 +1,7 @@
+
+<div [innerHTML]="gesture"></div>
+<app-handtracker (onPrediction)="prediction($event)"></app-handtracker>
+
 <div class="row">
 	<app-about class="col-6"></app-about>
 	<app-search class="col-6"></app-search>
